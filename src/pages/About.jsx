@@ -74,7 +74,7 @@ function About() {
           </span>
         </div>
         <div className="flex flex-wrap flex-1 gap-4">
-          <MilestoneCard count={6} label="Months of Experience" />
+          <MilestoneCard count={1.4} label="Year of Experience" />
           <MilestoneCard count={10} label=" Projects" />
           <MilestoneCard count={10} label="Technologies" />
           <MilestoneCard count={5} label="earned certificate" />
