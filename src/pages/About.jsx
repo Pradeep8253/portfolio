@@ -44,7 +44,7 @@ function About() {
               <li className="basis-[50%] info-wrapper">
                 <span className="info info-label">Address : &nbsp;</span>
                 <span className="info info-value">
-                  Pratapgarh, Uttar Pradesh , Bihar
+                  Pratapgarh, Uttar Pradesh
                 </span>
               </li>
               <li className="basis-[50%] info-wrapper">
