@@ -2,50 +2,62 @@ import React, { useEffect, useState } from "react";
 import ClockLoader from "react-spinners/ClockLoader";
 import Header from "../components/Header";
 import PortfolioCard from "../components/PortfolioCard";
-
-import Archo from "../assets/images/porfolio/archo.jpg";
-import Audiophile from "../assets/images/porfolio/audiophile.jpg";
-import Vesper from "../assets/images/porfolio/vesper.jpg";
+import IndexByte from "../assets/images/porfolio/indexbyte.png";
+import HoldOnWorld from "../assets/images/porfolio/holdonworld.png";
+import PressRelease from "../assets/images/porfolio/pressrelease.png";
 
 function Portfolio({ darkMode }) {
   const portfolioData = [
     {
-      name: "Archo",
-      image: Archo,
+      name: "IndexByte",
+      image: IndexByte,
       highlights: [
-        "parallax effects",
-        "hover effects",
-        "loading animation",
-        "scroll animation",
-        "button",
-        "Carousel",
-        "sliders",
+        "Admin Panel Development",
+        "Frontend UI",
+        "RESTful API Integration",
+        "Real-time Notifications (Firebase)",
       ],
-      technologies: ["react js", "swiper js", "gsap", "tailwind css"],
-      projectUrl: "https://archo-psi.vercel.app/",
-      // sourceCode: "https://github.com/sudhanshusaurav/archo",
+      technologies: [
+        "MERN Stack",
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase",
+      ],
+      projectUrl: "https://www.indexbyte.com",
     },
     {
-      name: "Vesper",
-      image: Vesper,
-      highlights: ["Scroll Animation", "Sliders", "Menu", "UI"],
-      technologies: ["HTML", "CSS", "Bootstrap", "Gsap", "Slick Js"],
-      projectUrl: "https://vesper-ecru.vercel.app/",
-      // sourceCode: 'https://github.com/sudhanshusaurav/vesper',
+      name: "PressRelease",
+      image: PressRelease,
+      highlights: [
+        "Responsive UI",
+        "Admin Panel",
+        "Payment Integration (Razorpay)",
+        "Real-time Notifications",
+      ],
+      technologies: ["Next.js", "ShadCN UI", "Razorpay", "Firebase"],
+      projectUrl: "https://www.pressrelease.org.in",
     },
     {
-      name: "Audiophile",
-      image: Audiophile,
+      name: "CRM & CMS",
+      image: HoldOnWorld,
       highlights: [
-        "parallax effects",
-        "hover effects",
-        "scroll animation",
-        "cart management",
+        "Admin Panel Modules",
+        "Data Management with Mongoose",
+        "Notification System (Pusher)",
+        "Enhanced UI Components",
       ],
-      technologies: ["react js", "gsap", "tailwind css"],
-      projectUrl: "https://audiophile-iota.vercel.app/",
-      // sourceCode:
-      //   "https://github.com/sudhanshusaurav/audiophile_react_tailwind",
+      technologies: [
+        "Next.js",
+        "Mongoose",
+        "Formik",
+        "Mantine",
+        "Headless UI",
+        "React-select",
+        "Pusher",
+      ],
+      projectUrl: "https://www.holdonworld.com",
     },
   ];
 

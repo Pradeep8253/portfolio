@@ -74,7 +74,7 @@ function About() {
           </span>
         </div>
         <div className="flex flex-wrap flex-1 gap-4">
-          <MilestoneCard count={1.4} label="Year of Experience" />
+          <MilestoneCard count={1.5} label="Year of Experience" />
           <MilestoneCard count={10} label=" Projects" />
           <MilestoneCard count={10} label="Technologies" />
           <MilestoneCard count={5} label="earned certificate" />
@@ -85,14 +85,14 @@ function About() {
           MY SKILLS
         </h3>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-          <ProgressBar count={85} label="HTML5" id="html" />
-          <ProgressBar count={90} label="CSS3" id="css" />
-          <ProgressBar count={80} label="JAVASCRIPT" id="javascript" />
-          <ProgressBar count={90} label="NEXT JS" id="NEXT" />
+          <ProgressBar count={80} label="JavaScript" id="javascript" />
           <ProgressBar count={75} label="REACT" id="react" />
+          <ProgressBar count={90} label="NEXT JS" id="next" />
           <ProgressBar count={80} label="TAILWIND CSS" id="tailwind" />
           <ProgressBar count={90} label="REDUX" id="redux" />
-          <ProgressBar count={65} label="MONGOOSE" id="mongoose" />
+          <ProgressBar count={80} label="Node JS" id="node" />
+          <ProgressBar count={75} label="MONGOOSE" id="mongoose" />
+          <ProgressBar count={65} label="Razorpay" id="razorpay" />
         </div>
       </div>
       {/* <div className='my-16 text-center experience'>
