@@ -31,21 +31,15 @@ function About() {
               </li>
               <li className="basis-[50%] info-wrapper">
                 <span className="info info-label">Age : &nbsp;</span>
-                <span className="info info-value">25 Yrs</span>
+                <span className="info info-value">27 Yrs</span>
               </li>
               <li className="basis-[50%] info-wrapper">
                 <span className="info info-label">Nationality : &nbsp;</span>
                 <span className="info info-value">Indian</span>
               </li>
-              {/* <li className="basis-[50%] info-wrapper">
-                <span className="info info-label">Freelance : &nbsp;</span>
-                <span className="info info-value">Available</span>
-              </li> */}
               <li className="basis-[50%] info-wrapper">
                 <span className="info info-label">Address : &nbsp;</span>
-                <span className="info info-value">
-                  Pratapgarh, Uttar Pradesh
-                </span>
+                <span className="info info-value">Noida, Uttar Pradesh</span>
               </li>
               <li className="basis-[50%] info-wrapper">
                 <span className="info info-label">Phone : &nbsp;</span>
@@ -74,10 +68,10 @@ function About() {
           </span>
         </div>
         <div className="flex flex-wrap flex-1 gap-4">
-          <MilestoneCard count={1.5} label="Year of Experience" />
-          <MilestoneCard count={10} label=" Projects" />
-          <MilestoneCard count={10} label="Technologies" />
-          <MilestoneCard count={5} label="earned certificate" />
+          <MilestoneCard count={2} label="Years of Experience" />
+          <MilestoneCard count={15} label="Projects" />
+          <MilestoneCard count={12} label="Technologies" />
+          <MilestoneCard count={5} label="Earned Certificates" />
         </div>
       </div>
       <div className="my-16 text-center skills">
@@ -85,21 +79,20 @@ function About() {
           MY SKILLS
         </h3>
         <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-          <ProgressBar count={80} label="JavaScript" id="javascript" />
-          <ProgressBar count={75} label="REACT" id="react" />
-          <ProgressBar count={90} label="NEXT JS" id="next" />
-          <ProgressBar count={80} label="TAILWIND CSS" id="tailwind" />
-          <ProgressBar count={90} label="REDUX" id="redux" />
-          <ProgressBar count={80} label="Node JS" id="node" />
-          <ProgressBar count={75} label="MONGOOSE" id="mongoose" />
-          <ProgressBar count={65} label="Razorpay" id="razorpay" />
+          <ProgressBar count={65} label="C++" id="c" />
+          <ProgressBar count={65} label="CSS" id="css" />
+          <ProgressBar count={85} label="JavaScript" id="javascript" />
+          <ProgressBar count={85} label="React.js" id="react" />
+          <ProgressBar count={85} label="Next.js" id="next" />
+          <ProgressBar count={80} label="Tailwind CSS" id="tailwind" />
+          <ProgressBar count={85} label="Redux" id="redux" />
+          <ProgressBar count={80} label="Node.js" id="node" />
+          <ProgressBar count={75} label="MongoDB" id="mongoose" />
+          <ProgressBar count={70} label="Razorpay" id="razorpay" />
+          <ProgressBar count={70} label="Firebase" id="firebase" />
+          <ProgressBar count={65} label="Hostinger(vps)" id="hostinger" />
         </div>
       </div>
-      {/* <div className='my-16 text-center experience'>
-                <span className='inline-block px-16 pt-16 border-t-2 border-grayMedium'>
-                    <h3 className='mb-8 font-bold tracking-wide text-h3 dark:text-white text-grayMedium'>EXPERIENCE & EDUCATION</h3>
-                </span>
-            </div> */}
     </div>
   );
 }

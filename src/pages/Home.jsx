@@ -1,6 +1,6 @@
 import React from "react";
-import ProfileImg_light from "../assets/images/profile-light.jpeg";
-import ProfileImg_dark from "../assets/images/profile-dark.jpeg";
+import ProfileImg_light from "../assets/images/profile-light.webp";
+import ProfileImg_dark from "../assets/images/profile-dark.webp";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -9,7 +9,6 @@ function Home({ darkMode }) {
     <div className="w-full h-full outline-none lg:dark:gradient-orange lg:gradient-green">
       <div className="flex flex-col items-center justify-center h-full p-8 lg:flex-row md:p-12 ">
         <div className="relative lg:basis-[40%] h-full rounded-full lg:rounded-2xl overflow-hidden ">
-          {/* <span className='hidden lg:block'><Particles id="tsparticles" options={particleOptions} /></span> */}
           <img
             src={darkMode ? ProfileImg_dark : ProfileImg_light}
             alt="profile"
@@ -24,9 +23,10 @@ function Home({ darkMode }) {
             WEB DEVELOPER
           </h1>
           <p className="my-4 dark:text-white text-grayMedium">
-            I'm a India based web developer focused on crafting clean &
-            user‑friendly experiences, I am passionate about building excellent
-            web products that generate values for users.
+            I'm an India based web developer with 2+ years of experience,
+            focused on crafting clean & user‑friendly experiences using
+            React.js, Next.js, and the MERN stack. Passionate about building
+            scalable web products that generate real value for users.
           </p>
           <Link
             to="/about"

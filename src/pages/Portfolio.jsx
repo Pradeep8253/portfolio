@@ -2,51 +2,85 @@ import React, { useEffect, useState } from "react";
 import ClockLoader from "react-spinners/ClockLoader";
 import Header from "../components/Header";
 import PortfolioCard from "../components/PortfolioCard";
-import IndexByte from "../assets/images/porfolio/indexbyte.png";
-import HoldOnWorld from "../assets/images/porfolio/holdonworld.png";
-import PressRelease from "../assets/images/porfolio/pressrelease.png";
+
+import CRMImg from "../assets/images/porfolio/crm.webp";
+import VaradaImg from "../assets/images/porfolio/varada.webp";
+import Click4Flight from "../assets/images/porfolio/click4flight.webp";
+import AstroAnkit from "../assets/images/porfolio/astroankitjha.webp";
+import CRMAndCMS from "../assets/images/porfolio/holdonworld.webp";
 
 function Portfolio({ darkMode }) {
   const portfolioData = [
     {
-      name: "IndexByte",
-      image: IndexByte,
+      name: "CRM Platform",
+      image: CRMImg,
       highlights: [
-        "Admin Panel Development",
-        "Frontend UI",
-        "RESTful API Integration",
-        "Real-time Notifications (Firebase)",
+        "Multi-tenant CRM — Leads, Deals, Invoices, Inventory, Tasks & Support",
+        "Role-based Access Control & Dynamic Permissions",
+        "Real-time Notifications & Audit Logs",
+        "Redux Toolkit, Mantine UI, ExcelJS & API Security",
       ],
       technologies: [
-        "MERN Stack",
         "React.js",
         "Node.js",
-        "Express.js",
         "MongoDB",
-        "Firebase",
+        "Redux Toolkit",
+        "Mantine UI",
+        "ExcelJS",
       ],
-      projectUrl: "https://www.indexbyte.com",
+      projectUrl: "https://crm.infogainsoft.com",
     },
     {
-      name: "PressRelease",
-      image: PressRelease,
+      name: "Varada Plastech",
+      image: VaradaImg,
       highlights: [
-        "Responsive UI",
-        "Admin Panel",
-        "Payment Integration (Razorpay)",
-        "Real-time Notifications",
+        "Full-stack E-commerce Platform — Customer & Admin Modules",
+        "JWT Authentication & Razorpay Payment Integration",
+        "Image Uploads & Email Services",
+        "Analytics Dashboard with ApexCharts",
       ],
-      technologies: ["Next.js", "ShadCN UI", "Razorpay", "Firebase"],
-      projectUrl: "https://www.pressrelease.org.in",
+      technologies: [
+        "Redux Toolkit",
+        "Tailwind CSS",
+        "Razorpay",
+        "Radix UI",
+        "Formik",
+        "ApexCharts",
+      ],
+      projectUrl: "https://varadaplastech.com",
+    },
+    {
+      name: "click4flight",
+      image: Click4Flight,
+      highlights: [
+        "End-to-end Flight Search & Results Functionality",
+        "Dynamic Filtering & Advanced Search Features",
+        "RESTful APIs for Flight Data Fetch & Update",
+        "Deployed & Managed on Hostinger VPS",
+      ],
+      technologies: ["React.js", "Node.js", "MongoDB", "Express.js"],
+      projectUrl: "https://click4flight.co.uk",
+    },
+    {
+      name: "Astro Ankit Jha",
+      image: AstroAnkit,
+      highlights: [
+        "Comprehensive Admin Panel for Services & Backend Operations",
+        "RESTful APIs for Seamless Frontend-Backend Communication",
+        "Razorpay Payment Integration",
+        "Deployed & Managed on Hostinger VPS",
+      ],
+      technologies: ["React.js", "Node.js", "MongoDB", "Razorpay"],
+      projectUrl: "https://astroankitjha.com",
     },
     {
       name: "CRM & CMS",
-      image: HoldOnWorld,
+      image: CRMAndCMS,
       highlights: [
-        "Admin Panel Modules",
-        "Data Management with Mongoose",
-        "Notification System (Pusher)",
-        "Enhanced UI Components",
+        "Admin Panel Modules with Next.js & Mongoose",
+        "Real-time Notification System using Pusher",
+        "Enhanced UI with Mantine, Headless UI & React-select",
+        "Data Management & Formik-based Forms",
       ],
       technologies: [
         "Next.js",
@@ -64,39 +98,24 @@ function Portfolio({ darkMode }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    window.addEventListener("resize", function () {
-      setWindowWidth(window.innerWidth);
-    });
-
-    return () => {
-      window.removeEventListener("resize", function () {});
-    };
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  let loaderSize;
-  if (windowWidth < 767.98) {
-    loaderSize = 100;
-  } else if (windowWidth < 991.98) {
-    loaderSize = 200;
-  } else {
-    loaderSize = 100;
-  }
-
-  const renderPortfolioCards = portfolioData.map((data) => {
-    return (
-      <div className="min-w-[40%] flex-1" key={data.name}>
-        <PortfolioCard darkMode={darkMode} project={data} />
-      </div>
-    );
-  });
-
+  const loaderSize =
+    windowWidth < 767.98 ? 100 : windowWidth < 991.98 ? 200 : 100;
   const override = { display: "block" };
 
   return (
-    <div className="">
+    <div>
       <Header header="MY" colorText="PORTFOLIO" label="WORKS" />
       <div className="flex flex-wrap gap-8 px-4 md:px-16">
-        {renderPortfolioCards}
+        {portfolioData.map((data) => (
+          <div className="min-w-[40%] flex-1" key={data.name}>
+            <PortfolioCard darkMode={darkMode} project={data} />
+          </div>
+        ))}
         <div className="flex items-center justify-center flex-1 dark:bg-orange/70 bg-green/70">
           <div className="flex items-center w-full gap-4 px-4 py-8 justify-evenly md:gap-8 md:p-8">
             <div className="flex items-center justify-center flex-1">
@@ -120,7 +139,6 @@ function Portfolio({ darkMode }) {
             </div>
           </div>
         </div>
-        {/* <div className='flex-1'></div> */}
       </div>
     </div>
   );

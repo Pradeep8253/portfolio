@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
+import { useState } from "react";
 import { MdClose } from "react-icons/md";
-import { Link } from "react-router-dom";
+import Modal from "react-modal";
 
 function PortfolioCard({ darkMode, project }) {
   const viewProject = () => {

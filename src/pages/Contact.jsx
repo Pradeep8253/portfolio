@@ -28,7 +28,7 @@ function Contact() {
                     ADDRESS POINT
                   </h3>
                   <h3 className="dark:text-white text-grayMedium">
-                    Pratapgarh, Uttar Pradesh India
+                    Noida, Uttar Pradesh India
                   </h3>
                 </span>
               </div>
