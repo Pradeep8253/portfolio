@@ -1,0 +1,82 @@
+export const projects = [
+  {
+    id: 1,
+    name: "AstroAnkitJha",
+    image: "/images/portfolio/astroankitjha.webp",
+    projectUrl: "https://example.com",
+    sourceCode: "",
+    highlights: [
+      "Astrology consultation website",
+      "Booking system integration",
+      "Responsive design",
+    ],
+    technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+  },
+  {
+    id: 2,
+    name: "Click4Flight",
+    image: "/images/portfolio/click4flight.webp",
+    projectUrl: "https://example.com",
+    sourceCode: "",
+    highlights: [
+      "Flight booking platform",
+      "Real-time search",
+      "Payment gateway",
+    ],
+    technologies: ["React", "REST API", "Bootstrap", "Node.js"],
+  },
+  {
+    id: 3,
+    name: "CRM System",
+    image: "/images/portfolio/crm.webp",
+    projectUrl: "https://example.com",
+    sourceCode: "",
+    highlights: [
+      "Customer management",
+      "Dashboard analytics",
+      "Role-based access",
+    ],
+    technologies: ["React", "Node.js", "MongoDB", "Chart.js"],
+  },
+  {
+    id: 4,
+    name: "HoldOnWorld",
+    image: "/images/portfolio/holdonworld.webp",
+    projectUrl: "https://example.com",
+    sourceCode: "",
+    highlights: ["Social platform", "Real-time updates", "User authentication"],
+    technologies: ["React", "Firebase", "Tailwind CSS"],
+  },
+  {
+    id: 5,
+    name: "IndexByte",
+    image: "/images/portfolio/indexbyte.webp",
+    projectUrl: "https://example.com",
+    sourceCode: "",
+    highlights: ["Tech blog platform", "CMS integration", "SEO optimized"],
+    technologies: ["Next.js", "Markdown", "Tailwind CSS"],
+  },
+  {
+    id: 6,
+    name: "Varada",
+    image: "/images/portfolio/varada.webp",
+    projectUrl: "https://example.com",
+    sourceCode: "",
+    highlights: ["E-commerce website", "Product catalog", "Cart & checkout"],
+    technologies: ["React", "Node.js", "Stripe", "MongoDB"],
+  },
+];
+export const skills = [
+  { id: "html", label: "HTML5", count: 95 },
+  { id: "css", label: "CSS3 / Sass", count: 90 },
+  { id: "js", label: "JavaScript", count: 88 },
+  { id: "react", label: "React.js", count: 85 },
+  { id: "node", label: "Node.js", count: 80 },
+  { id: "mongo", label: "MongoDB", count: 75 },
+];
+export const milestones = [
+  { count: 50, label: "Projects Completed" },
+  { count: 30, label: "Happy Clients" },
+  { count: 5, label: "Years Experience" },
+  { count: 15, label: "Awards Won" },
+];

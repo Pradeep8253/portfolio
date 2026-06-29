@@ -1,33 +1,11 @@
+"use client";
 import { useState } from "react";
+import Image from "next/image";
 import { MdClose } from "react-icons/md";
 import Modal from "react-modal";
 
-function PortfolioCard({ darkMode, project }) {
-  const viewProject = () => {
-    window.open(project.projectUrl, "_blank");
-  };
-
-  const viewSourceCode = () => {
-    window.open(project.sourceCode, "_blank");
-  };
-
+export default function PortfolioCard({ darkMode, project }) {
   const [openModal, setOpenModal] = useState(false);
-
-  const renderHighlights = project.highlights.map((highlight, index) => {
-    return (
-      <li className="capitalize" key={index}>
-        {highlight}
-      </li>
-    );
-  });
-
-  const renderTechnology = project.technologies.map((technology, index) => {
-    return (
-      <li className="capitalize" key={index}>
-        {technology}
-      </li>
-    );
-  });
 
   return (
     <div className="relative flex-1 portfolio__card">
@@ -48,26 +26,19 @@ function PortfolioCard({ darkMode, project }) {
         isOpen={openModal}
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
-        className={`px-4 py-8 modal overflow-auto min-w-[85%] md:min-w-[70%] ${
-          darkMode ? "bg-slate" : "bg-white"
-        }`}
-        overlayClassName={`modal-overlay ${
-          darkMode ? "bg-orange/10" : "bg-green/20"
-        }`}
+        className={`px-4 py-8 modal overflow-auto min-w-[85%] md:min-w-[70%] ${darkMode ? "bg-slate" : "bg-white"}`}
+        overlayClassName={`modal-overlay ${darkMode ? "bg-orange/10" : "bg-green/20"}`}
+        ariaHideApp={false}
       >
         <span
-          className={`absolute p-1 border rounded-full right-4 top-4 ${
-            darkMode ? "border-orange" : "border-green"
-          }`}
+          className={`absolute p-1 border rounded-full right-4 top-4 ${darkMode ? "border-orange" : "border-green"}`}
           onClick={() => setOpenModal(false)}
         >
-          <MdClose className={`${darkMode ? "text-orange" : "text-green"}`} />
+          <MdClose className={darkMode ? "text-orange" : "text-green"} />
         </span>
         <div className="mb-8 border-b border-grayMedium">
           <h3
-            className={`text-3xl uppercase font-semibold tracking-wider ${
-              darkMode ? "text-orange" : "text-green"
-            }`}
+            className={`text-3xl uppercase font-semibold tracking-wider ${darkMode ? "text-orange" : "text-green"}`}
           >
             {project.name}
           </h3>
@@ -76,56 +47,48 @@ function PortfolioCard({ darkMode, project }) {
           <div className="flex-1">
             <img
               src={project.image}
-              alt="archo"
+              alt={project.name}
               className="object-contain w-full h-full"
             />
           </div>
           <div className="flex flex-row items-center flex-1 my-4 md:my-0 justify-evenly md:justify-center md:flex-col">
             <button
-              onClick={viewProject}
-              target="_blank"
-              className={`my-1 border hover:text-white inline-flex items-center justify-center px-4 py-2 bg-transparent ${
-                darkMode
-                  ? "border-orange text-orange hover:bg-orange"
-                  : "hover:bg-green border-green text-green"
-              } tracking-wider`}
+              onClick={() => window.open(project.projectUrl, "_blank")}
+              className={`my-1 border hover:text-white inline-flex items-center justify-center px-4 py-2 bg-transparent ${darkMode ? "border-orange text-orange hover:bg-orange" : "hover:bg-green border-green text-green"} tracking-wider`}
             >
               View Project
             </button>
-            {/* <button
-              onClick={viewSourceCode}
-              target='_blank'
-              className={`my-1 border hover:text-white inline-flex items-center justify-center px-4 py-2 bg-transparent ${
-                darkMode
-                  ? 'border-orange text-orange hover:bg-orange'
-                  : 'hover:bg-green border-green text-green'
-              } tracking-wider`}
-            >
-              Source Code
-            </button> */}
           </div>
         </div>
         <div
-          className={`my-4 gap-4 flex flex-col md:flex-row ${
-            darkMode ? "text-white/50" : "text-grayMedium"
-          }`}
+          className={`my-4 gap-4 flex flex-col md:flex-row ${darkMode ? "text-white/50" : "text-grayMedium"}`}
         >
           <div className="flex-1 p-4">
-            <span className={`block w-full py-2 border-b border-grayMedium`}>
+            <span className="block w-full py-2 border-b border-grayMedium">
               <h3 className="text-xl font-normal">Highlights</h3>
             </span>
-            <ul className="p-4 list-disc">{renderHighlights}</ul>
+            <ul className="p-4 list-disc">
+              {project.highlights.map((h, i) => (
+                <li className="capitalize" key={i}>
+                  {h}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="flex-1 p-4">
-            <span className={`block w-full py-2 border-b border-grayMedium`}>
+            <span className="block w-full py-2 border-b border-grayMedium">
               <h3 className="text-xl font-normal">Technology Used</h3>
             </span>
-            <ul className="p-4 list-disc">{renderTechnology}</ul>
+            <ul className="p-4 list-disc">
+              {project.technologies.map((t, i) => (
+                <li className="capitalize" key={i}>
+                  {t}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Modal>
     </div>
   );
 }
-
-export default PortfolioCard;
