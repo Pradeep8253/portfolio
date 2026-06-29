@@ -8,25 +8,63 @@ gsap.registerPlugin(ScrollTrigger)
 export default function ProgressBar({ count, label, id }) {
   const startCounting = () => {
     const number = document.getElementById(`${id}number`)
+    if (!number) return
     let counting = 0
     const interval = setInterval(() => {
-      if (counting === count) { clearInterval(interval) }
-      else { counting += 1; number.innerHTML = counting + '%' }
+      if (counting >= count) {
+        clearInterval(interval)
+      } else {
+        counting += 1
+        number.innerHTML = counting + '%'
+      }
     }, 1000 / count)
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      const tl = gsap.timeline({ scrollTrigger: { trigger: `#${id}`, start: 'top 80%', end: 'bottom top' } })
-      tl.fromTo(`#${id}`, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: Power1.ease, onComplete: startCounting })
-      tl.fromTo(`#${id} circle`, { strokeDashoffset: 472 }, { strokeDashoffset: 472 - 472 * (count / 100), duration: 1, ease: Power1.easeInOut })
-    }, 1000)
+    // Use a small timeout to ensure DOM is ready and scroller is the overflow-y-auto div
+    const timer = setTimeout(() => {
+      const scroller = document.querySelector('.main-content')
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: `#${id}`,
+          scroller: scroller || window,
+          start: 'top 90%',
+          end: 'bottom top',
+          once: true,
+        },
+      })
+      tl.fromTo(
+        `#${id}`,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: Power1.ease, onComplete: startCounting }
+      )
+      tl.fromTo(
+        `#${id} circle`,
+        { strokeDashoffset: 472 },
+        { strokeDashoffset: 472 - 472 * (count / 100), duration: 1, ease: Power1.easeInOut }
+      )
+    }, 1200)
+
+    return () => {
+      clearTimeout(timer)
+      ScrollTrigger.getAll().forEach((t) => t.kill())
+    }
   }, [])
 
   return (
     <div className="flex-1 min-w-[40%] max-w-[45%] md:min-w-[30%] lg:min-w-[20%] flex items-center justify-center my-8">
       <div className="skill" id={id}>
-        <div className="outer"><div className="inner"><h3 className="font-semibold tracking-wide number text-h3 dark:text-white text-grayMedium" id={`${id}number`}>0</h3></div></div>
+        <div className="outer">
+          <div className="inner">
+            <h3
+              className="font-semibold tracking-wide number text-h3 dark:text-white text-grayMedium"
+              id={`${id}number`}
+            >
+              0
+            </h3>
+          </div>
+        </div>
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
           <circle cx="80" cy="80" r="73" strokeLinecap="round" />
         </svg>

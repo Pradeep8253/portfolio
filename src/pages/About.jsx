@@ -4,6 +4,7 @@ import gsap from "gsap";
 import Header from "../components/Header";
 import MilestoneCard from "../components/MilestoneCard";
 import ProgressBar from "../components/ProgressBar";
+import { FaDownload } from "react-icons/fa";
 import { milestones, skills } from "../data/portfolioData";
 
 export default function AboutPage() {
@@ -11,71 +12,90 @@ export default function AboutPage() {
     gsap.fromTo(
       ".about-info",
       { x: -300, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, delay: 0.3 },
+      { x: 0, opacity: 1, duration: 0.8, stagger: 0.15, delay: 0.3 }
     );
   }, []);
 
-  return (
-    <div className="dark:bg-slate bg-white min-h-full overflow-y-auto pb-20">
-      <Header header="About" colorText="Me" label="ABOUT" />
-      <div className="px-8 lg:px-20">
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Profile Image */}
-          <div className="lg:w-1/3 flex justify-center">
-            <div className="relative w-64 h-64 rounded-2xl overflow-hidden">
-              <img
-                src="/images/profile-dark.webp"
-                alt="Profile"
-                className="w-full h-full object-cover dark:block hidden"
-              />
-              <img
-                src="/images/profile-light.webp"
-                alt="Profile"
-                className="w-full h-full object-cover dark:hidden block"
-              />
-            </div>
-          </div>
-          {/* Info */}
-          <div className="lg:w-2/3">
-            <h2 className="about-info text-2xl font-bold dark:text-white text-grayMedium mb-4">
-              Full Stack Developer
-            </h2>
-            <p className="about-info dark:text-grayLight text-grayMedium leading-relaxed mb-6">
-              I'm a passionate full-stack developer with expertise in building
-              modern web applications. I love turning ideas into elegant,
-              functional digital experiences using cutting-edge technologies.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                { label: "Name", value: "Pradeep" },
-                { label: "Email", value: "pradeep@example.com" },
-                { label: "Location", value: "India" },
-                { label: "Availability", value: "Freelance / Full-time" },
-              ].map(({ label, value }) => (
-                <div key={label} className="about-info info-wrapper">
-                  <span className="info">
-                    <span className="info-label">{label}: </span>
-                    <span className="info-value">{value}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+  const downloadCv = () => {
+    const link = document.createElement("a");
+    link.href = "/pradeep-resume.pdf";
+    link.download = "pradeep-cv.pdf";
+    link.click();
+  };
 
-        {/* Milestones */}
-        <div className="flex flex-wrap mt-16 gap-0">
-          {milestones.map((m) => (
-            <MilestoneCard key={m.label} count={m.count} label={m.label} />
-          ))}
+  return (
+    <div className="dark:bg-slate bg-white min-h-full pb-20">
+      <Header header="ABOUT" colorText="ME" label="RESUME" />
+      <div className="px-4 md:px-16">
+        <div className="flex flex-col items-start lg:flex-row">
+          {/* Personal Info */}
+          <div className="flex items-center justify-center flex-1 w-full text-left lg:block">
+            <span>
+              <h3 className="about-info inline-block pb-1 mb-4 font-bold tracking-wide border-b text-h3 dark:text-white text-grayMedium">
+                PERSONAL INFO
+              </h3>
+              <ul className="flex flex-col flex-wrap lg:items-center md:flex-row">
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">First Name : &nbsp;</span>
+                  <span className="info info-value">Pradeep</span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Last Name : &nbsp;</span>
+                  <span className="info info-value">Yadav</span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Age : &nbsp;</span>
+                  <span className="info info-value">27 Yrs</span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Nationality : &nbsp;</span>
+                  <span className="info info-value">Indian</span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Address : &nbsp;</span>
+                  <span className="info info-value">Noida, Uttar Pradesh</span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Phone : &nbsp;</span>
+                  <span className="info info-value">+91 8417876362</span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Email : &nbsp;</span>
+                  <span className="info info-value">
+                    pradeepyadav8253@gmail.com
+                  </span>
+                </li>
+                <li className="about-info basis-[50%] info-wrapper">
+                  <span className="info info-label">Language : &nbsp;</span>
+                  <span className="info info-value">Hindi, English</span>
+                </li>
+              </ul>
+              <button
+                onClick={downloadCv}
+                className="about-info inline-flex items-center my-8 hoverable btn-primary"
+              >
+                <span className="px-4">DOWNLOAD CV</span>
+                <span className="px-4 text-white">
+                  <FaDownload />
+                </span>
+              </button>
+            </span>
+          </div>
+
+          {/* Milestones */}
+          <div className="flex flex-wrap flex-1 gap-4">
+            {milestones.map((m) => (
+              <MilestoneCard key={m.label} count={m.count} label={m.label} />
+            ))}
+          </div>
         </div>
 
         {/* Skills */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold dark:text-white text-grayMedium mb-8 text-center">
-            My Skills
-          </h2>
-          <div className="flex flex-wrap justify-center">
+        <div className="my-16 text-center skills">
+          <h3 className="mb-8 font-bold tracking-wide text-h3 dark:text-white text-grayMedium">
+            MY SKILLS
+          </h3>
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4">
             {skills.map((s) => (
               <ProgressBar
                 key={s.id}
