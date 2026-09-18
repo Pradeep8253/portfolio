@@ -14,6 +14,11 @@ module.exports = {
       slate: '#111111', gray: '#222222', zinc: colors.zinc,
       red: colors.red, orange: '#ffb400', green: '#72b626',
       blue: colors.blue, indigo: colors.indigo, purple: colors.purple, pink: colors.pink,
+      'premium-black': '#030303',
+      'premium-offwhite': '#E5E5E5',
+      'premium-gray': '#1E1E1E',
+      'premium-border': 'rgba(255, 255, 255, 0.1)',
+      'premium-accent': '#3A69F3',
     }),
     extend: {
       fontFamily: { poppins: ['Poppins', 'sans-serif'] },

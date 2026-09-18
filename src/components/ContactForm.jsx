@@ -90,7 +90,7 @@ export default function ContactForm() {
         <div className="text-center dark:text-orange text-green">
           <FaSmile className="mx-auto opacity-0 text-8xl greet-text" />
           <h3 className="text-2xl font-bold tracking-wider opacity-0 greet-text">Thanks for Contacting!</h3>
-          <p className="text-sm opacity-0 greet-text dark:text-white text-grayMedium mt-2">I'll get back to you soon.</p>
+          <p className="text-sm opacity-0 greet-text dark:text-white text-grayMedium mt-2">I&apos;ll get back to you soon.</p>
         </div>
       </div>
     </form>
